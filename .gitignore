@@ -1,11 +1,14 @@
 _site
-.bundle
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-.DS_store
 .ruby-version
 .tweet-cache
+
+.bundle
+.gem
+
+.DS_store
 Gemfile.lock
 assets/libs/
 node_modules/

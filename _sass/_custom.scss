@@ -1,0 +1,187 @@
+/*******************************************************************************
+ * Customizing the style
+ ******************************************************************************/
+
+// Variables
+
+$page-padding:           50px;
+$navbar-padding:         6px;
+
+$font-family:           'Lato', 'Roboto', sans-serif !default;
+$heading-font-family:   'Noto Sans', 'Roboto', sans-serif !default;
+$monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
+
+
+// Typography
+
+// Page padding
+
+.container.mt-5 {
+  padding: $page-padding;
+}
+
+.navbar .container {
+  padding-left: $page-padding;
+  //padding-right: $page-padding;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+// Social header
+
+.navbar-brand.social {
+  font-size: 1.25rem !important;
+  padding-top: 0.3125rem !important;
+  padding-bottom: 0.3125rem !important;
+  text-align: inherit;
+
+  margin-right: 0;
+  margin-left: 10px;
+  padding-right: $navbar-padding;
+
+  a {
+    margin-left: $navbar-padding;
+  }
+}
+
+// Menu hamburger
+
+.navbar-toggler {
+  padding-right: $navbar-padding; //0.75rem
+
+  .icon-bar {
+    fill: var(--global-text-color);
+    transition: all 0.5s;
+  }
+
+  svg {
+    width: 18px;
+    height: 15px;
+  }
+
+  .top-bar {
+    transform: rotate(41deg)scaleX(1.25)translateY(-1.5px);
+    transform-origin: top left;
+  }
+  .bottom-bar {
+    transform: rotate(-41deg)scaleX(1.25)translateY(1.5px);
+    transform-origin: bottom left;
+  }
+}
+
+// Footer
+
+footer.sticky-bottom {
+  border-top: none;
+  font-size: 0.75rem;
+
+  .container {
+    color: lighten($grey-color, 15%);
+    padding-left: $page-padding;
+    padding-right: $page-padding;
+    text-align: center;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Profile
+
+.clearfix {
+  padding-bottom: 1rem;
+}
+
+.profile {
+  margin: 0.50em;
+
+  .contact {
+    p {
+      margin: 0;
+      font-family: monospace;
+      padding-left: 0.75rem; // 1em
+      font-size: 0.75rem; // 12px
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// News
+
+h2.news {
+  border-top: 1px solid var(--global-divider-color);
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+.news table caption {
+  margin: 0;
+  padding: 0;
+  caption-side: bottom;
+  text-align: right;
+}
+
+// Projects
+
+.projects {
+  .card-title {
+    text-align: center;
+    margin-top: 0.35em;
+  }
+}
+
+// Publications
+
+.publications {
+  h2 {
+    color: var(--global-theme-color);
+    text-align: right;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ol.bibliography li div.abstract.hidden {
+    border: none;
+  }
+}
+
+// Pagination
+
+.pagination {
+  .page-item {
+    .page-link {
+      &:hover {
+        color: var(--global-theme-color);
+        background-color: unset;
+      }
+    }
+
+    &.active .page-link {
+      color: var(--global-theme-color);
+      background-color: unset;
+      box-shadow: none;
+
+      &:hover {
+        background-color: unset;
+        box-shadow: none;
+      }
+    }
+  }
+}

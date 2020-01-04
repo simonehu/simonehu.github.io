@@ -8,15 +8,50 @@
       {% endif %}
     >
       <table class="table table-sm table-borderless">
+        {% if page.layout == 'about' %}
+        <caption class="caption"><a href="{{ 'news' | relative_url }}">archives</a></caption>
+        {% endif %}
         {% assign news = site.news | reverse %}
         {% if include.limit and page.announcements.limit %}
           {% assign news_limit = page.announcements.limit %}
         {% else %}
           {% assign news_limit = news_size %}
         {% endif %}
-        {% for item in news limit: news_limit %}
+
+        {% assign term = page.announcements.term | slice: 0 %}
+        {% assign term_year = page.announcements.term | slice: 1, 4 %}
+        {% case term %}
+          {% when "F" %}
+            {% assign start = term_year | append: "-09-01"  %}
+            {% assign end = term_year | append: "-12-31"  %}
+          {% when "W" %}
+            {% assign start = term_year | append: "-01-01"  %}
+            {% assign end = term_year | append: "-04-30"  %}
+          {% when "S" %}
+            {% assign start = term_year | append: "-05-01"  %}
+            {% assign end = term_year | append: "-08-31"  %}
+        {% endcase %}
+
+
+        {% for item in news %}
+          {% assign item_date = item.date | date: "%Y-%m-%d" %}
+          {% if page.layout == 'about' %}
+            {% if page.announcements.term and item_date >= start and item_date <= end %}
+              {% assign display = true %}
+            {% elsif page.announcements.term %}
+              {% assign display = false %}
+            {% elsif forloop.index <= news_limit %}
+              {% assign display = true %}
+            {% else %}
+                {% break %}
+            {% endif %}
+          {% else %}
+            {% assign display = true %}
+          {% endif %}
+
+          {% if display %}
           <tr>
-            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
+            <th scope="row" style="width: 20%">{{ item.date | date: '%b. %d. %Y' }}</th>
             <td>
               {% if item.inline %}
                 {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
@@ -25,10 +60,11 @@
               {% endif %}
             </td>
           </tr>
+          {% endif %}
         {% endfor %}
       </table>
     </div>
   {% else %}
-    <p>No news so far...</p>
+    <p>No {{ page.announcements.label }} so far...</p>
   {% endif %}
 </div>

@@ -5,8 +5,9 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
+        <span class="font-weight-bold">
+          {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}
+        </span>
       {% else %}
         {{ site.title }}
       {% endif %}
@@ -22,8 +23,7 @@ layout: default
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
           {% endif %}
           {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
       30vw, 95vw"{% endcapture %}
@@ -32,6 +32,16 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
+        {% for var in page.profile %}
+          {% if var.first != "align" and var.first != "more_info" %}
+          {% unless var.first contains "image" %}
+              <div class="contact">
+                {{ var.first }}:
+                {{ var.last }}
+              </div>
+          {% endunless %}
+          {% endif %}
+        {% endfor %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
@@ -42,9 +52,7 @@ layout: default
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
+      <h2 class="news">current {{ page.announcements.label }}</h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
