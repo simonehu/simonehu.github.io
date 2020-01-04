@@ -1,22 +1,49 @@
 <div class="news">
-  <h2>news</h2>
+  <h2>current tidbits</h2>
   {% if site.news  %}
     <table>
+      <caption class="caption"><a href="{{ 'news' | prepend: site.baseurl }}">archives</a></caption>
     {% assign news = site.news | reverse %}
-    {% for item in news limit: site.news_limit %}
-      <tr>
-        <td class="date">{{ item.date | date: "%b %-d, %Y" }}</td>
-        <td class="announcement">
-          {% if item.inline %}
-            {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-          {% else %}
-            <a class="news-title" href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
-          {% endif %}
-        </td>
-      </tr>
+    {% assign term = site.news_term | slice: 0 %}
+    {% assign term_year = site.news_term | slice: 1, 4 %}
+    {% case term %}
+      {% when "F" %}
+        {% assign start = term_year | append: "-09-01"  %}
+        {% assign end = term_year | append: "-12-31"  %}
+      {% when "W" %}
+        {% assign start = term_year | append: "-01-01"  %}
+        {% assign end = term_year | append: "-04-30"  %}
+      {% when "S" %}
+        {% assign start = term_year | append: "-05-01"  %}
+        {% assign end = term_year | append: "-08-31"  %}
+    {% endcase %}
+
+    {% for item in news %}
+      {% assign item_date = item.date | date: "%Y-%m-%d" %}
+      {% if site.news_term and item_date >= start and item_date <= end %}
+        {% assign display = true %}
+      {% elsif site.news_term %}
+        {% assign display = false %}
+      {% elsif forloop.index <= site.news_limit %}
+        {% assign display = true %}
+      {% else %}
+          {% break %}
+      {% endif %}
+      {% if display %}
+        <tr>
+          <td class="date">{{ item.date | date: "%b. %-d. %Y" }}</td>
+          <td class="announcement">
+            {% if item.inline %}
+              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+            {% else %}
+              <a class="news-title" href="{{ item.url | prepend: site.baseurl | prepend: site.url }}">{{ item.title }}</a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endif %}
     {% endfor %}
     </table>
   {% else %}
-    <p>No news so far...</p>
+    <p>No tidbits so far...</p>
   {% endif %}
 </div>

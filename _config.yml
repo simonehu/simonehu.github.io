@@ -1,18 +1,17 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-name: Your Name
-email: you@example.com
+name: Simone Hu
+email: simone.hu@uwaterloo.ca
 description: > # this means to ignore newlines until "url:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
-  Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+  Powered by coffee and bunnies. Based on the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 
 url:  # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/
-last_updated: # leave blank if you don't want to display last updated
+baseurl: # the subpath of your site, e.g. /blog/
+last_updated: 01.04.2020 # leave blank if you don't want to display last updated
+
+header: ['about', 'writing', 'teaching'] # header order and includes
 
 # -----------------------------------------------------------------------------
 # Open Graph
@@ -22,10 +21,12 @@ last_updated: # leave blank if you don't want to display last updated
 # preview image as the value of og_image.
 serve_og_meta: false # Include Open Graph meta tags in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
+
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
-github_username: # your GitHub user name
+social_header: true # have social icons in header
+github_username: simonehu # your GitHub user name
 twitter_username: # your Twitter handle
 linkedin_username: # your LinkedIn user name
 scholar_userid: # your Google Scholar ID
@@ -37,19 +38,18 @@ research_gate_profile: # your profile on ResearchGate
 blogger_url: # your blogger URL
 
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: # your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name: al-folio
-blog_description: a simple whitespace theme for academics
+blog_name: thoughts.
+blog_description:
 
 # Pagination
 paginate: 4
-permalink: /blog/:year/:title/
+permalink: /blog/:year/:month/:title/
 paginate_path: /blog/page:num/
 
 text:
@@ -58,7 +58,7 @@ text:
     older: 'Older'
 
 # Comments
-disqus_shortname: al-folio # put your disqus shortname
+disqus_shortname: # put your disqus shortname
 
 # Optional features
 show_social_icons:  false
@@ -73,12 +73,16 @@ collections:
     defaults:
       layout: post
     output: true
-    permalink: /news/:path/
+    permalink: /news/:title/
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /projects/:title/
+  travels:
+    output: true
+    permalink: /travels/:title/
 
 news_limit: 5
+news_term: W2020
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
@@ -86,6 +90,8 @@ news_limit: 5
 
 # Build settings
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
 highlighter: pygments
 
 # Includes & excludes
@@ -102,17 +108,20 @@ plugins:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Einstein
+  last_name: Hu
 
   style: apa
   locale: en
 
-  sort_by: year
+  sort_by: year,month
   order: descending
+  group_by: type
+  type_names: { article: publications and preprints, conference: posters }
 
   source: /_bibliography/
-  bibliography: papers.bib
+  bibliography: publications.bib
   bibliography_template: bib
+  bibtex_filters:
 
   replace_strings: true
   join_strings: true
@@ -126,6 +135,6 @@ scholar:
 # -----------------------------------------------------------------------------
 # Other settings
 # -----------------------------------------------------------------------------
-jquery_version: "1.12.4"
-katex_version: "0.9.0"
-anchorjs_version: "3.2.2"
+jquery_version: "3.4.1"
+katex_version: "0.11.1"
+anchorjs_version: "4.2.2"

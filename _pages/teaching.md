@@ -2,9 +2,13 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: teaching related activities. currently at the University of Waterloo.
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+University of Waterloo:
+* Winter 2020 --- TA for CO 481: Introduction to Quantum Information Processing, taught by Michele Mosca
+* Fall 2019 --- TA for MATH 115: Linear Algebra for Engineering, coordinated by Ryan Trelford
+* Fall 2014 --- Mentor for the Python Workshop for Beginners, led by Women in Computer Science
 
-Organize your courses by years, topics, or universities, however you like!
+Other:
+* 2017 to 2019 --- Teaching Assistant for two Kumon centres in Toronto, ON

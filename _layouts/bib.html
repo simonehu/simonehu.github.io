@@ -3,7 +3,7 @@
 
 {% if entry.abbr %}
   {% if site.data.venues[entry.abbr] %}
-    <abbr>[<a href="{{site.data.venues[entry.abbr].url}}" target="_blank">{{entry.abbr}}</a>]</abbr>
+    <abbr>[<a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a>]</abbr>
   {% else %}
     <abbr>[{{entry.abbr}}]</abbr>
   {% endif %}
@@ -13,34 +13,34 @@
   {% if entry.type == "thesis" %}
     {{reference}}
   {% else %}
-    <span class="title">{{entry.title}}</span>
+    <span class="title">{{ entry.title }}</span>
     <span class="author">
       {% for author in entry.author_array %}
         {% if forloop.length == 1 %}
           {% if author.last == site.scholar.last_name %}
-            <em>{{author.last}}, {{author.first}}</em>
+            <em>{{author.first}} {{author.last}}.</em>
           {% else %}
-            {{author.last}}, {{author.first}}
+            {{author.first}} {{author.last}}.
           {% endif %}
         {% else %}
           {% unless forloop.last %}
             {% if author.last == site.scholar.last_name %}
-              <em>{{author.last}}, {{author.first}}</em>,
+              <em>{{author.first}} {{author.last}}</em>,
             {% else %}
               {% if site.data.coauthors[author.last] %}
-                <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a>, 
+                <a href="{{site.data.coauthors[author.last].url}}">{{author.first}} {{author.last}}</a>,
               {% else %}
-                {{author.last}}, {{author.first}},
+                {{author.first}} {{author.last}},
               {% endif %}
             {% endif %}
           {% else %}
             {% if author.last == site.scholar.last_name %}
-              and <em>{{author.last}}, {{author.first}}</em>
+              and <em>{{author.first}} {{author.last}}.</em>
             {% else %}
               {% if site.data.coauthors[author.last] %}
-                and <a href="{{site.data.coauthors[author.last].url}}" target="_blank">{{author.last}}, {{author.first}}</a> 
+                and <a href="{{site.data.coauthors[author.last].url}}">{{author.first}} {{author.last}}</a>.
               {% else %}
-                and {{author.last}}, {{author.first}}
+              and {{author.first}} {{author.last}}.
               {% endif %}
             {% endif %}
           {% endunless %}
@@ -54,37 +54,57 @@
     {% elsif entry.type == "inproceedings" %}
       <em>In {{entry.booktitle}}</em>
     {% endif %}
-    {% if entry.year %}
-      {{entry.year}}
+    {% if entry.status %}
+      {{ entry.status }}.
     {% endif %}
+    {% if entry.year %}
+      {{entry.year}}.
+    {% endif %}
+    </span>
+
+    <span class="note">
+    {% if entry.note %}
+      {{entry.note}}.
+    {% endif%}
     </span>
   {% endif %}
 
   <span class="links">
-  {% if entry.abstract %}
-    [<a class="abstract">Abs</a>]
-  {% endif %}
-  {% if entry.arxiv %}
-    [<a href="http://arxiv.org/abs/{{ entry.arxiv }}" target="_blank">arXiv</a>]
-  {% endif %}
-  {% if entry.html %}
-    [<a href="{{ entry.html }}" target="_blank">HTML</a>]
-  {% endif %}
-  {% if entry.pdf %}
-    [<a href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">PDF</a>]
-  {% endif %}
-  {% if entry.supp %}
-    [<a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Supp</a>]
-  {% endif %}
-  {% if entry.poster %}
-    [<a href="{{ entry.poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Poster</a>]
-  {% endif %}
-  {% if entry.slides %}
-    [<a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}" target="_blank">Slides</a>]
-  {% endif %}
-  {% if entry.code %}
-    [<a href="{{ entry.code }}" target="_blank">Code</a>]
-  {% endif %}
+  (
+  {% assign links = "abstract, arxiv, html, pdf, supp, poster, slides, code" | split: ", " | group_by_exp: "item", "entry | map: item" | where_exp: "item", "item.name[0]" | map: "items" %}
+  {% for link in links %}
+    {% if link[0] == "abstract" %}
+      <a class="abstract">abs</a>
+    {% elsif link[0] == "arxiv" %}
+      <a href="http://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>
+    {% elsif link[0] == "html" %}
+      <a href="{{ entry.html }}">html</a>
+    {% elsif link[0] == "pdf" %}
+      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">pdf</a>
+    {% elsif link[0] == "supp" %}
+      <a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">supp</a>
+    {% elsif link[0] == "poster" %}
+      {% assign posters = entry.poster | split: ", " %}
+      {% for poster in posters %}
+        {% if forloop.length == 1 %}
+          <a href="{{ poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">poster</a>
+        {% else %}
+          <a href="{{ poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">{{ poster | remove: "2015.pdf" | downcase }}</a>
+          {% unless forloop.length == 1 or forloop.last %}
+           |
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% elsif link[0] == "slides" %}
+      <a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">slides</a>
+    {% elsif link[0] == "code" %}
+      <a href="{{ entry.code }}">code</a>
+    {% endif %}
+    {% unless forloop.length == 1 or forloop.last %}
+     |
+    {% endunless %}
+  {% endfor %}
+  )
   </span>
 
   <!-- Hidden abstract block -->

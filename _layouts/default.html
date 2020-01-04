@@ -7,14 +7,15 @@
 
     {% include header.html %}
 
-
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
       </div>
     </div>
 
-    {% include footer.html %}
+    {% if page.footer %}
+      {% include footer.html %}
+    {% endif %}
 
     {% include hemline.html %}
 

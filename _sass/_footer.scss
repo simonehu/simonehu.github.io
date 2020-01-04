@@ -19,17 +19,19 @@
 }
 
 footer {
-  background-color: $grey-color-dark;
-  border-top: $footer-border-top;
-  color: $footer-color;
+  //background-color: $grey-color-dark;
+  //border-top: $footer-border-top;
+  color: darken($footer-color, 15%);
   font-size: $footer-font-size;
   font-weight: $footer-font-weight;
   padding: $footer-padding;
-  position: fixed;
+  vertical-align: middle;
+  position: relative;
     left: 0px;
     bottom: 0px;
-  width: 100%;
+  //width: 100%;
+  text-align: center;
 
-  a { color: #fff; }
+  a { color: inherit; }
   a:hover { color: $theme-color; }
 }

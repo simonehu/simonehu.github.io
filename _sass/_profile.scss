@@ -1,13 +1,18 @@
 .profile {
+    margin: 0.50em;
     img {
         box-shadow: 0 0 5px $grey-color;
         width: 100%;
     }
 }
-.address {
-    font-family: monospace;
 
-    p { margin: 0; }
+.contact {
+    p {
+      margin: 0;
+      padding-left: 1em;
+      font-family: monospace;
+      font-size: 12px;
+    }
 }
 
 .news {
@@ -32,6 +37,12 @@
             padding: 6px 0;
             vertical-align: top;
             border: none;
+        }
+        caption {
+          margin: 0;
+          padding: 0;
+          caption-side: bottom;
+          text-align: right;
         }
     }
 }

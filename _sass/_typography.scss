@@ -4,7 +4,7 @@ html {
 
 body {
     color: $text-color;
-    font-weight: 100;
+    //font-weight: 300;
 }
 
 abbr {
@@ -28,8 +28,12 @@ sup {
     top: -0.9ex;
 }
 
+h1 strong{
+  color: darken($text-color, 15%);
+}
+
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 100;
+    font-weight: 300;
 }
 
 div.equation {

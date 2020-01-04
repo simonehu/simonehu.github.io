@@ -1,11 +1,11 @@
 .publications {
     h2 {
         color: $theme-color;
-        // border-bottom: 1px solid $theme-color;
-        // border-top: 1px solid $theme-color;
+        border-bottom: 1px solid $theme-color;
+        border-top: 1px solid $theme-color;
         font-size: 32px;
         margin-bottom: 30px;
-        // padding: 20px 0;
+        padding: 20px 0;
         text-align: center;
     }
 }
@@ -25,7 +25,7 @@
         margin: 10px 0;
         position: relative;
 
-        span { display: block; }
+        div > span { display: block; }
         .title { font-weight: bolder; }
         .author {
             a {
@@ -71,7 +71,7 @@
             transition: all 0.15s ease;
         }
         span.abstract.hidden {
-            border: dashed 1px $background-color;
+            //border: dashed 1px $background-color;
         }
         span.abstract.hidden.open {
             border-color: $grey-color;

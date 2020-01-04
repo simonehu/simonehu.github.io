@@ -1,12 +1,15 @@
 .site-header {
-    border-bottom: 1px solid $grey-color-light;
     background-color: #fff;
     opacity: 0.95;
-    position:fixed;
-    left:calc((100vw - 100%)/2);
+    position: relative;
+    //left:calc((100vw - 100%)/2);
     top:0px;
-    width:100%;
+    //width: 100%;
     z-index: 50;
+
+    .wrapper {
+      //border-bottom: 1px solid $grey-color-light;
+    }
 }
 
 .site-title {
@@ -18,7 +21,7 @@
 .site-nav {
     float: right;
     line-height: $nav-height;
-    
+
     .nav-trigger {
         display: none;
     }
@@ -26,22 +29,27 @@
     .menu-icon {
         display: none;
     }
-    
-    .page-link{
+
+    .page-link {
         line-height: $line-height;
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
             margin-left: 10px;
         }
     }
+
+    .social-header a {
+      margin-left: 5px;
+    }
+
     // added for hamburger
     @include media-query($on-palm) {
         position: absolute;
         top: 9px;
         right: $horizontal-spacing-unit / 2;
         background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
+        //border: 1px solid $grey-color-light;
+        //border-radius: 5px;
         text-align: right;
 
         label[for="nav-trigger"] {
@@ -63,7 +71,23 @@
             text-align: center;
 
             > svg path {
-                fill: $grey-color-dark;
+              fill: $grey-color-dark;
+              transition-property: transform opacity;
+              transition-duration: 0.5s;
+              transition-delay: 0s;
+            }
+
+        }
+
+        input:checked + label svg {
+            #top {
+              transform: rotate(41deg)scaleX(1.25)translateY(-1.5px);
+              transform-origin: top left;
+            }
+            #middle { opacity: 0; }
+            #bottom {
+              transform: rotate(-41deg)scaleX(1.25)translateY(1.5px);
+              transform-origin: bottom left;
             }
         }
 

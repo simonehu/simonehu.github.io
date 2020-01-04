@@ -8,6 +8,12 @@ a {
     }
 }
 
+a:hover,
+a:focus,
+a:active {
+  outline: none;
+}
+
 article a, .news a {
     color: $theme-color;
     font-weight: 100;
@@ -17,12 +23,11 @@ article a, .news a {
     }
 }
 
-.social a {
-    color: $text-color;
+.social a, .profile a {
+    color: inherit;
 
     &:hover { color: $theme-color; }
 }
-
 
 // a {
 //   color: $link-color;
