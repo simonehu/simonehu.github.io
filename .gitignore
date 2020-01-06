@@ -1,1 +1,13 @@
-.DS_STORE
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+.ruby-version
+
+.bundle
+.gem
+
+.DS_store
+Gemfile
+Gemfile.lock
+
