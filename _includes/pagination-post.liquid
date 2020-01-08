@@ -1,0 +1,13 @@
+<nav aria-label="Blog page navigation">
+  <ul class="pagination pagination-lg justify-content-center">
+    <li class="page-item {% unless page.previous %}disabled{% endunless %}">
+      <a class="page-link" href="{{ page.previous.url | relative_url }}" tabindex="-1">Older</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="{% if page.collection == 'posts' %}{{ '/blog/' | relative_url }}{% else %}{{ page.collection | prepend: '/' | append: '/' | relative_url }}{% endif %}">Back</a>
+    </li>
+    <li class="page-item {% unless page.next %}disabled{% endunless %}">
+      <a class="page-link" href="{{ page.next.url | relative_url }}">Newer</a>
+    </li>
+  </ul>
+</nav>

@@ -9,7 +9,7 @@
     >
       <table class="table table-sm table-borderless">
         {% if page.layout == 'about' %}
-        <caption class="caption"><a href="{{ 'news' | relative_url }}">archives</a></caption>
+        <caption class="caption"><a href="{{ '/news/' | relative_url }}">archives</a></caption>
         {% endif %}
         {% assign news = site.news | reverse %}
         {% if include.limit and page.announcements.limit %}
