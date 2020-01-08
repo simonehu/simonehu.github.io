@@ -2,14 +2,14 @@
 <script src="//code.jquery.com/jquery-{{ site.jquery_version }}.min.js"></script>
 
 <!-- Load Common JS -->
-<script src="{{ '/assets/js/common.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+<script src="{{relative}}{{ '/assets/js/common.js' | relative_url }}"></script>
 
 {% if site.enable_katex %}
 <!-- Load KaTeX -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/katex.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/{{ site.katex_version }}/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
-<script src="{{ '/assets/js/katex.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+<script src="{{relative}}{{ '/assets/js/katex.js' | relative_url }}"></script>
 {% endif %}
 
 {% if site.enable_anchorjs %}

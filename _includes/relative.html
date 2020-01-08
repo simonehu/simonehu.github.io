@@ -1,0 +1,13 @@
+{% assign relative = "" %}
+{% assign depth = page.url | split: "/" | size | minus: 1 %}
+{% for i in (1..depth) %}
+  {% if forloop.last %}
+    {% assign relative = relative | append: ".." %}
+  {% else %}
+    {% assign relative = relative | append: "../" %}
+  {% endif %}
+{% endfor %}
+{% if relative == "" %}
+  {% assign relative = relative | append: "." %}
+{% endif %}
+

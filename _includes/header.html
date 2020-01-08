@@ -3,10 +3,10 @@
   <div class="wrapper">
 
     {% if page.layout != "about" %}
-    <a class="site-title" href="{{ site.baseurl | prepend: site.url }}/">
-        {% assign name = site.name | downcase | split: ' ' %}
-        {{ name | first }} {{ name | last }}
-    </a>
+      <a class="site-title" href="{{relative}}{{ '/' | relative_url }}">
+          {% assign name = site.name | downcase | split: ' ' %}
+          {{ name | first }} {{ name | last }}
+      </a>
     {% endif %}
 
     <nav class="site-nav">
@@ -25,18 +25,18 @@
         {% for order in site.header %}
           {% if order == "about" %}
             <!-- About -->
-            <a class="page-link" href="{{ site.baseurl | prepend: site.url }}/">about</a>
+            <a class="page-link" href="{{relative}}{{ '/' | relative_url }}">about</a>
           {% elsif order == "blog" %}
             <!-- Blog -->
-            <a class="page-link" href="{{ '/blog/' | prepend: site.baseurl | prepend: site.url }}">blog</a>
+            <a class="page-link" href="{{relative}}{{ '/blog/' | relative_url }}">blog</a>
           {% elsif order == "cv" %}
             <!-- CV -->
-            <a class="page-link" href="{{ '/assets/pdf/CV.pdf' | prepend: site.baseurl | prepend: site.url }}">vitae</a>
+            <a class="page-link" href="{{relative}}{{ '/assets/pdf/CV.pdf' | relative_url }}">vitae</a>
           {% else %}
           <!-- Pages -->
             {% for page in site.pages %}
               {% if page.title == order and page.url != "/" %}
-                <a class="page-link" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">{{ page.title }}</a>
+                <a class="page-link" href="{{relative}}{{ page.url | relative_url }}">{{ page.title }}</a>
               {% endif %}
             {% endfor %}
           {% endif %}

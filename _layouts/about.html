@@ -5,7 +5,7 @@ layout: page
 {% if page.profile %}
   <div class="profile col one {{ page.profile.align }}">
     {% if page.profile.image %}
-      <img class="one" src="{{ page.profile.image | prepend: '/assets/img/' | prepend: site.baseurl | prepend: site.url }}">
+      <img class="one" src="{{relative}}{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
     {% endif %}
     {% for var in page.profile %}
       {% if var.first != "align" and var.first != "image" %}

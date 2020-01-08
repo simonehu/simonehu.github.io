@@ -5,10 +5,11 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
+    <h5 class="post-description">{{ page.description }}</h5>
     <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
 
-  <article class="post-content">
+  <article class="post-content clearfix">
     {{ content }}
   </article>
 
@@ -26,5 +27,29 @@ layout: default
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   {% endif %}
+
+  <div class="pagination clearfix mb1 mt4">
+    <div class="left">
+      {% if page.previous %}
+        <a class="pagination-item" href="{{relative}}{{ page.previous.url | relative_url }}">Previous</a>
+      {% else %}
+        <span class="pagination-item disabled">Previous</span>
+      {% endif %}
+    </div>
+    <div class="right">
+      {% if page.next %}
+        <a class="pagination-item" href="{{relative}}{{ page.next.url | relative_url }}">Next</a>
+      {% else %}
+        <span class="pagination-item disabled">Next</span>
+      {% endif %}
+    </div>
+    <div>
+      {% if page.collection == "posts" %}
+        <a class=pagination-item" href="{{relative}}{{ 'blog' | relative_url }}/">Back</a>
+      {% else %}
+        <a class=pagination-item" href="{{relative}}{{ page.collection | relative_url }}/">Back</a>
+      {% endif %}
+    </div>
+  </div>
 
 </div>

@@ -80,23 +80,23 @@
     {% elsif link[0] == "html" %}
       <a href="{{ entry.html }}">html</a>
     {% elsif link[0] == "pdf" %}
-      <a href="{{ entry.pdf | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">pdf</a>
+      <a href="{{relative}}{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}">pdf</a>
     {% elsif link[0] == "supp" %}
-      <a href="{{ entry.supp | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">supp</a>
+      <a href="{{relative}}{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}">supp</a>
     {% elsif link[0] == "poster" %}
       {% assign posters = entry.poster | split: ", " %}
       {% for poster in posters %}
         {% if forloop.length == 1 %}
-          <a href="{{ poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">poster</a>
+          <a href="{{relative}}{{ poster | prepend: '/assets/pdf/' | relative_url }}">poster</a>
         {% else %}
-          <a href="{{ poster | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">{{ poster | remove: "2015.pdf" | downcase }}</a>
+          <a href="{{relative}}{{ poster | prepend: '/assets/pdf/' | relative_url }}">{{ poster | remove: "2015.pdf" | downcase }}</a>
           {% unless forloop.length == 1 or forloop.last %}
            |
           {% endunless %}
         {% endif %}
       {% endfor %}
     {% elsif link[0] == "slides" %}
-      <a href="{{ entry.slides | prepend: '/assets/pdf/' | prepend: site.baseurl | prepend: site.url }}">slides</a>
+      <a href="{{relative}}{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}">slides</a>
     {% elsif link[0] == "code" %}
       <a href="{{ entry.code }}">code</a>
     {% endif %}

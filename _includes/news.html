@@ -2,7 +2,7 @@
   <h2>current tidbits</h2>
   {% if site.news  %}
     <table>
-      <caption class="caption"><a href="{{ 'news' | prepend: site.baseurl }}">archives</a></caption>
+      <caption class="caption"><a href="{{relative}}{{ '/news/' | relative_url }}">archives</a></caption>
     {% assign news = site.news | reverse %}
     {% assign term = site.news_term | slice: 0 %}
     {% assign term_year = site.news_term | slice: 1, 4 %}
@@ -36,7 +36,7 @@
             {% if item.inline %}
               {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
             {% else %}
-              <a class="news-title" href="{{ item.url | prepend: site.baseurl | prepend: site.url }}">{{ item.title }}</a>
+              <a class="news-title" href="{{relative}}{{ item.url | relative_url }}">{{ item.title }}</a>
             {% endif %}
           </td>
         </tr>
