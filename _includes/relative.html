@@ -1,5 +1,5 @@
 {% assign relative = "" %}
-{% assign depth = page.url | split: "/" | size | minus: 1 %}
+{% assign depth = include.url | default: page.url | split: "/" | size | minus: 1 %}
 {% for i in (1..depth) %}
   {% if forloop.last %}
     {% assign relative = relative | append: ".." %}

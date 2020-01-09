@@ -5,6 +5,8 @@ permalink: /news/
 description:
 ---
 
+{% include relative.html %}
+
 {%if site.news %}
   <table>
     {% assign news = site.news | reverse %}
