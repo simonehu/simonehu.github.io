@@ -339,8 +339,9 @@ body { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: 
 .right { float: right; }
 
 .site-header { background-color: #fff; opacity: 0.95; position: relative; top: 0px; z-index: 50; }
+.site-header .wrapper { padding-top: 50px; }
 
-.site-title { font-size: 20px; line-height: 56px; letter-spacing: -1px; margin-bottom: 0; }
+.site-title { font-size: 20px; line-height: 56px; margin-bottom: 0; }
 
 .site-nav { float: right; line-height: 56px; }
 .site-nav .nav-trigger { display: none; }
