@@ -25,6 +25,14 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
   //padding-right: $page-padding;
 }
 
+.navbar.sticky-top {
+  border-bottom: none;
+
+  .container {
+    padding-top: $page-padding;
+  }
+}
+
 .post-header {
   margin-bottom: 40px;
 }

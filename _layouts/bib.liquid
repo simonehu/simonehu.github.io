@@ -135,6 +135,9 @@
         >
           {{- more_authors_hide -}}
         </span>
+      {% endif %}.
+      {% if entry.year %}
+        {{ entry.year }}.
       {% endif %}
       {% if entry.annotation %}
         <i
@@ -178,17 +181,19 @@
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
     {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% if entrytype_text != "" %}
     <div class="periodical">
       {{ periodical | strip }}.
     </div>
-    {%- if entry.status -%}
+    {% endif %}
+    {%- if entry.status or entry.note -%}
     <div class="periodical">
-      {{ entry.status | strip }}.
-    </div>
-    {%- endif -%}
-    {%- if entry.note -%}
-    <div class="periodical">
-      {{ entry.note | strip }}.
+      {% if entry.status %}
+        {{ entry.status | strip }}.
+      {% endif %}
+      {% if entry.note %}
+        {{ entry.note | strip }}.
+      {% endif %}
     </div>
     {%- endif -%}
 
