@@ -48,6 +48,9 @@
           {% endunless %}
         {% endif %}
       {% endfor %}
+      {% if entry.year %}
+        {{entry.year}}.
+      {% endif %}
     </span>
 
     <span class="periodical">
@@ -59,12 +62,6 @@
     {% if entry.status %}
       {{ entry.status }}.
     {% endif %}
-    {% if entry.year %}
-      {{entry.year}}.
-    {% endif %}
-    </span>
-
-    <span class="note">
     {% if entry.note %}
       {{entry.note}}.
     {% endif%}
