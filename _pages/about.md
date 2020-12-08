@@ -20,11 +20,12 @@ social: false
 footer: true
 ---
 
-I am a first year master's student at the [University of Waterloo](https://www.uwaterloo.ca/math/), with the pleasure of working with [Karen Yeats](https://www.math.uwaterloo.ca/~kayeats/) in the Department of [Combinatorics & Optimization](https://www.uwaterloo.ca/combinatorics-and-optimization/).
+I am a second year master's student at the [University of Waterloo](https://www.uwaterloo.ca/math/), with the pleasure of working with [Karen Yeats](https://www.math.uwaterloo.ca/~kayeats/) in the Department of [Combinatorics & Optimization](https://www.uwaterloo.ca/combinatorics-and-optimization/).
 
 I previously also completed my undergraduate degree there, majoring in Combinatorics & Optimization and Statistics, and with a Computational Mathematics minor.
 
 I currently think about the combinatorics of quantum field theory, more specifically on the graphs behind scattering amplitudes and their related invariants and properties.
+I also have recently thought about Le diagrams and related combinatorial objects.
 
 [//]: # (Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com){:target="\_blank"}. You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.)
 
