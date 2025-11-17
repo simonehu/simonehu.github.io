@@ -4,8 +4,7 @@ name: Update TOCs
 on:
   push:
     branches:
-      - main
-      - master
+      - hyde
     paths:
       - "*.md"
   workflow_dispatch:

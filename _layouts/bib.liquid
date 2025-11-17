@@ -46,7 +46,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -200,7 +200,7 @@
     <!-- Links/Buttons -->
     <div class="links">
       (
-      {% assign links = "award, abstract, doi, arxiv, bibtex_show, html, pdf, supp, video, blog, code, poster, slides, website" | split: ", " | group_by_exp: "item", "entry | map: item" | where_exp: "item", "item.name[0]" | map: "items" %}
+      {% assign links = "award, abstract, doi, eprint, bibtex_show, html, pdf, supp, video, blog, code, poster, slides, website" | split: ", " | group_by_exp: "item", "entry | map: item" | where_exp: "item", "item.name[0]" | map: "items" %}
       {% for link in links %}
       {% if link[0] == "award" %}
         <a class="award btn-sm" role="button">
@@ -210,8 +210,8 @@
         <a class="abstract btn-sm" role="button">abs</a>
       {% elsif link[0] == "doi" %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn-sm" role="button">doi</a>
-      {% elsif link[0] == "arxiv" %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn-sm" role="button">arXiv</a>
+      {% elsif link[0] == "eprint" %}
+        <a href="http://arxiv.org/abs/{{ entry.eprint }}" class="btn-sm" role="button">arXiv</a>
       {% elsif link[0] == "bibtex_show" %}
         <a class="bibtex btn-sm" role="button">bibtex</a>
       {% elsif link[0] == "html" %}

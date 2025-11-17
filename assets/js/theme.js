@@ -26,7 +26,10 @@ let applyTheme = () => {
   let theme = determineComputedTheme();
 
   transTheme();
-  setHighlight(theme);
+  // if code syntax highlighting is on
+  if (document.getElementById("highlight_theme_light")) {
+    setHighlight(theme);
+  }
   setGiscusTheme(theme);
   setSearchTheme(theme);
 

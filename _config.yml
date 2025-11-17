@@ -50,7 +50,7 @@ posts_in_search: true
 bib_search: false
 
 # Dimensions
-max_width: 930px
+max_width: 850px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -260,8 +260,8 @@ scholar:
   style: apa
   locale: en
 
-  sort_by: year,month
-  order: descending
+  sort_by: year,author
+  order: descending,ascending
   group_by: type
   type_names: { article: publications and preprints, conference: posters }
 

@@ -1,6 +1,8 @@
 /*******************************************************************************
  * Customizing the style
  ******************************************************************************/
+@use "sass:color";
+@use "variables" as *;
 
 // Variables
 
@@ -14,22 +16,47 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
 
 // Typography
 
+header, h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+}
+
+.font-weight-bold {
+  font-weight: 500 !important;
+}
+
+body {
+  font-family: $font-family;
+}
+
+.desc, .post-description {
+  color: $grey-color;
+}
+
+table th {
+  font-weight: 400;
+}
+
 // Page padding
 
 .container.mt-5 {
-  padding: $page-padding;
+  padding: 0 $page-padding;
 }
 
-.navbar .container {
-  padding-left: $page-padding;
-  //padding-right: $page-padding;
+.fixed-top-nav .container.mt-5 {
+  //padding-top: $page-padding;
 }
 
-.navbar.sticky-top {
+body.sticky-bottom-footer {
+  padding-bottom: $page-padding;
+}
+
+.navbar {
   border-bottom: none;
 
   .container {
     padding-top: $page-padding;
+    padding-left: $page-padding;
+    //padding-right: $page-padding;
   }
 }
 
@@ -37,7 +64,16 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
   margin-bottom: 40px;
 }
 
-// Social header
+// Navbar header
+
+.navbar .title {
+  color: inherit;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
 
 .navbar-brand.social {
   font-size: 1.25rem !important;
@@ -54,6 +90,10 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
   }
 }
 
+.navbar .toggle-container {
+  padding-right: 6px;
+}
+
 // Menu hamburger
 
 .navbar-toggler {
@@ -65,17 +105,28 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
   }
 
   svg {
-    width: 18px;
+    width: 22px;
     height: 15px;
-  }
+    viewBox: 0 0 22 15;
 
-  .top-bar {
-    transform: rotate(41deg)scaleX(1.25)translateY(-1.5px);
-    transform-origin: top left;
-  }
-  .bottom-bar {
-    transform: rotate(-41deg)scaleX(1.25)translateY(1.5px);
-    transform-origin: bottom left;
+    .icon-bar {
+      width: 22px;
+      height: 3px;
+      rx: 3px;
+    }
+
+    .top-bar {
+      //transform: rotate(41deg)scaleX(1.25)translateY(-1.5px);
+      //transform-origin: top left;
+    }
+    .middle-bar{
+      y: 6px;
+    }
+    .bottom-bar {
+      y: 12px;
+      //transform: rotate(-41deg)scaleX(1.25)translateY(1.5px);
+      //transform-origin: bottom left;
+    }
   }
 }
 
@@ -84,9 +135,10 @@ $monospace-font-family: 'Source Code Pro', 'Consolas', monospace !default;
 footer.sticky-bottom {
   border-top: none;
   font-size: 0.75rem;
+  padding-top: 0;
 
   .container {
-    color: lighten($grey-color, 15%);
+    color: color.adjust($grey-color, $lightness: 15%);
     padding-left: $page-padding;
     padding-right: $page-padding;
     text-align: center;
@@ -102,6 +154,13 @@ footer.sticky-bottom {
   }
 }
 
+// Code
+
+code {
+  // Code preserves newlines and nowrap
+  white-space: pre;
+}
+
 
 // Profile
 
@@ -111,6 +170,7 @@ footer.sticky-bottom {
 
 .profile {
   margin: 0.50em;
+  width: 33%;
 
   .contact {
     p {
@@ -158,15 +218,36 @@ h2.news {
 // Publications
 
 .publications {
-  h2 {
+  h2.bibliography {
     color: var(--global-theme-color);
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
     text-align: right;
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
   }
 
-  ol.bibliography li div.abstract.hidden {
-    border: none;
+  ol.bibliography {
+    list-style: circle;
+    padding-left: 40px;
+
+    li div.abstract.hidden {
+      border: none;
+    }
+  }
+
+  .links a {
+    &:hover {
+      color: var(--global-theme-color);
+    }
+    &.active {
+      color: var(--global-theme-color);
+    }
+  }
+
+  .hidden.open {
+    margin-top: 10px;
   }
 }
 

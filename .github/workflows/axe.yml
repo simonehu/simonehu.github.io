@@ -4,12 +4,10 @@ on:
   # if you want to run this on every push uncomment the following lines
   # push:
   #   branches:
-  #     - master
-  #     - main
-  # pull_request:
+  #     - master (code)
+  # pull_request
   #   branches:
-  #     - master
-  #     - main
+  #     - master (code)
   workflow_dispatch:
     inputs:
       url:
