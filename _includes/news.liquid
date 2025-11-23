@@ -8,7 +8,7 @@
       {% endif %}
     >
       <table class="table table-sm table-borderless">
-        {% if page.layout == 'about' %}
+        {% if page.layout == 'about' and page.announcements.archives %}
         <caption class="caption"><a href="{{ '/news/' | relative_url }}">archives</a></caption>
         {% endif %}
         {% assign news = site.news | reverse %}

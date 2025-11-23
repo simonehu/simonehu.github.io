@@ -2,19 +2,18 @@
 layout: about
 title: about
 permalink: /
-subtitle: coffeecoffeecoffee. math. travel. books.
+subtitle: #<q>A mathematician is a machine for turning coffee into theorems</q> ~ A. Renyi #coffeecoffeecoffee. math. travel. books.
 
 profile:
   align: right
-  image:
+  image: #'snow.jpeg'
   image_circular: false # crops the image to make it circular
-  email: <p><a href="mailto:simone.hu@uwaterloo.ca">simone.hu@uwaterloo.ca</a></p>
-  office: <p>MC 5488</p>
+  email: <p><a href="mailto:simone.hu@maths.ox.ac.uk">simone.hu@maths.ox.ac.uk</a></p>
   address: >
-    <p>Department of <br/> Combinatorics & Optimization</p>
-    <p>University of Waterloo</p>
-    <p>200 University Ave. West</p>
-    <p>Waterloo, ON, Canada N2L 3G1</p>
+    <p>Mathematical Institute</p>
+    <p>University of Oxford</p>
+    <p>Radcliffe Observatory Quarter, Woodstock Rd.</p>
+    <p>Oxford OX2 6GG, UK</p>
   more_info:
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -26,7 +25,8 @@ announcements:
   scrollable: false # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
   label: tidbits
-  term: W2020
+  term: F2025
+  archive: false # include link to archives
 
 latest_posts:
   enabled: false
@@ -34,10 +34,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a second year master's student at the [University of Waterloo](https://www.uwaterloo.ca/math/), with the pleasure of working with [Karen Yeats](https://www.math.uwaterloo.ca/~kayeats/) in the Department of [Combinatorics & Optimization](https://www.uwaterloo.ca/combinatorics-and-optimization/).
+I am a DPhil student in the [Mathematical Institute](https://www.maths.ox.ac.uk/) at the [University of Oxford](https://www.ox.ac.uk), where I have the privilege of working with the guidance of  [Francis Brown](https://www.asc.ox.ac.uk/person/professor-francis-brown) and [Erik Panzer](https://people.maths.ox.ac.uk/panzer/).
+I am fascinated by the interplay of combinatorics, geometry and mathematical physics.
 
-I previously also completed my undergraduate degree there, majoring in Combinatorics & Optimization and Statistics, and with a Computational Mathematics minor.
+I previously spent a bunch of time at the [University of Waterloo](https://www.uwaterloo.ca/math/), where I received both my BMath and MMath degrees.
+During my master's, I was fortunate to be advised by [Karen Yeats](https://www.math.uwaterloo.ca/~kayeats/) in the Department of [Combinatorics & Optimization](https://www.uwaterloo.ca/combinatorics-and-optimization/).
 
-I currently think about the combinatorics of quantum field theory, more specifically on the graphs behind scattering amplitudes and the properties of a related arithmetic invariant called the $c_2$-invariant.
-<br/>I also have recently thought about Le diagrams and other associated combinatorial objects.
+Very broadly, I like to think about problems that have a combinatorial flavour.\\
+My current research programme is driven by three major interacting forces:
+  * Invariant differential forms related to general linear groups and symmetric spaces
+  * Graph complexes related to deformation theory, manifold invariants, and various (tropical) moduli spaces
+  * Generalized Feynman integrals and their periods arising in quantum field theory
+
+In the not so distant past, I've thought more about the combinatorics of quantum field theory and scattering amplitudes, with a focus on Feynman periods, their graph symmetries and graph polynomials, and related arithmetic invariants.
+I've also ventured into the world of Le diagrams and other associated combinatorial objects.
 

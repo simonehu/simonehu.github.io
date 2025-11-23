@@ -1,7 +1,19 @@
+"brown":
+  - firstname: ["Francis", "F."]
+    url: https://www.asc.ox.ac.uk/person/professor-francis-brown
+
+"panzer":
+  - firstname: ["Erik",  "E."]
+    url: https://people.maths.ox.ac.uk/panzer/
+
+"balduf":
+  - firstname: ["Paul",  "P.", "Paul-Hermann"]
+    url: https://paulbalduf.com
+
 "yeats":
   - firstname: ["Karen",  "K.", "K. A.", "Karen Amanda"]
     url: https://math.uwaterloo.ca/~kayeats/
 
 "makarov":
   - firstname: ["Vadim"]
-    url: http://www.vad1.com/
+    url: http://www.vad1.com
