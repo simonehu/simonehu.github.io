@@ -9,6 +9,6 @@ code: false # for bibtex formatting
 ---
 
 <div class="publications">
-    {% bibliography --group_by type --group_order ascending %}
+    {% bibliography %}
 </div>
 

@@ -14,7 +14,7 @@ keywords: # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: #⚛️  the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: # the base hostname & protocol for your site
+url: https://simonehu.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -182,6 +182,8 @@ exclude:
   - README.md
   - vendor
   - untracked
+  - purgecss.config.js
+  - requirements.txt
 keep_files:
   - CNAME
   - .nojekyll
@@ -262,8 +264,6 @@ scholar:
 
   sort_by: year,author
   order: descending,ascending
-  group_by: type
-  group_order: ascending
   type_names: { article: publications and preprints, conference: posters, thesis: theses}
   type_aliases: { online: article }
   type_order: [article, thesis, conference]
@@ -283,8 +283,8 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
-  group_order: descending
+  group_by: type
+  group_order: ascending
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid
